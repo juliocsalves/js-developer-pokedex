@@ -84,6 +84,8 @@
     margin: .5rem;
     padding: 1rem;
     border-radius: 1rem;
+    transition: all 0.3s ease-in-out;
+    height: 10rem;
 }
 
 .pokemon .number {
@@ -92,6 +94,25 @@
     text-align: right;
     font-size: .625rem;
 }
+
+.pokemon .detail img {
+    transition: all 0.3s ease-in-out;
+}
+
+.pokemon.expanded .detail img {
+    height: 140px;        
+}
+
+.pokemon.extended {
+    height: auto !important; /* Força o tamanho do <li> */
+    transition: all 0.3s ease-in-out;
+}
+
+.pokemon.extended .detail img {
+    height: 140px !important; /* Aumenta apenas a imagem dentro do Pokémon clicado */
+    transition: all 0.3s ease-in-out;
+}
+
 
 .pokemon .name {
     text-transform: capitalize;
@@ -145,6 +166,34 @@
     border: none;
     border-radius: 1rem;
 }
+
+.abilities {
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    display: none;
+}
+
+.pokemon.extended .abilities {
+    display: block; 
+}
+
+.abilities h4 {
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #444;
+}
+
+.abilities ul {
+    padding-left: 15px;
+}
+
+.abilities li {
+    margin-bottom: 5px;
+}
+
 
 @media screen and (min-width: 380px) {
     .pokemons {
