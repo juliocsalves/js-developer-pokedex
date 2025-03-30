@@ -36,7 +36,7 @@ pokeApi.getPokemonDetail = (pokemon) => {
 };
 
 pokeApi.getPokemons = (offset = 0, limit = 5) => {
-    
+    alert('chegou aqui');
     const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
     if (url){
         console.log('console: ' + url);
