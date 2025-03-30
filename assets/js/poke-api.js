@@ -41,7 +41,7 @@ pokeApi.getPokemons = (offset = 0, limit = 5) => {
     if (url){
         console.log('console: ' + url);
     } else {
-        console.log('dados não encontrados');
+        console.log('dados não encontrados ');
     }
     
     return fetch(url)
