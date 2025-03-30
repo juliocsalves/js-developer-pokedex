@@ -35,36 +35,19 @@ pokeApi.getPokemonDetail = (pokemon) => {
         .then(convertPokeApiDetailToPokemon);
 };
 
-// pokeApi.getPokemons = (offset = 0, limit = 5) => {
-//     const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
-
-//     return fetch(url)
-//         .then(response => response.json())
-//         .then(jsonBody => jsonBody.results)
-//         .then(pokemons => pokemons.map(pokeApi.getPokemonDetail))
-//         .then(detailRequests => Promise.all(detailRequests))
-//         .then(pokemonsDetails => pokemonsDetails);
-// };
-
-
-pokeApi.getPokemons = async (offset = 0, limit = 5) => {
-    const corsProxy = 'https://cors-anywhere.herokuapp.com/';
-    const url = `${corsProxy}https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
-
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`Erro ao buscar lista de Pokémons: ${response.status}`);
-        }
-
-        const data = await response.json();
-
-        const detailPromises = data.results.map(pokemon => pokeApi.getPokemonDetail(pokemon));
-        const pokemonsDetails = await Promise.all(detailPromises);
-
-        return pokemonsDetails.filter(p => p); // remove os nulos em caso de falha
-    } catch (error) {
-        console.error("Erro ao carregar Pokémons:", error);
-        return [];
-    }
+pokeApi.getPokemons = (offset = 0, limit = 5) => {
+    
+    const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
+    console.log('console: ' + url);
+    return fetch(url)
+        .then(response => response.json())
+        .then(jsonBody => jsonBody.results)
+        .then(pokemons => pokemons.map(pokeApi.getPokemonDetail))
+        .then(detailRequests => Promise.all(detailRequests))
+        .then(pokemonsDetails => pokemonsDetails);
 };
+
+
+
+
+
