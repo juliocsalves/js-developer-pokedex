@@ -48,7 +48,8 @@ pokeApi.getPokemonDetail = (pokemon) => {
 
 
 pokeApi.getPokemons = async (offset = 0, limit = 5) => {
-    const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
+    const corsProxy = 'https://cors-anywhere.herokuapp.com/';
+    const url = `${corsProxy}https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
 
     try {
         const response = await fetch(url);
