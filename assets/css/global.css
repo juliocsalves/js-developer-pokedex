@@ -1,23 +1,75 @@
+
+@font-face {
+    font-family: 'Pokemon';
+    src: url('assets/fonts/Pokemon-Solid.ttf') format('truetype');
+}
+
 * {
-    font-family: 'Roboto', sans-serif;
-    box-sizing: border-box;
+    font-family: 'Pokemon', sans-serif;
+    box-sizing: border-box; /* Garantir que padding e bordas não extrapolem o tamanho */
 }
 
 body {
-    background-color: #f6f8fc;
+    background: linear-gradient(135deg, #FFDE00, #3B4CCA, #78C850);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .content {
-    width: 100vw;
-    height: 100vh;
-    padding: 1rem;
-    background-color: #fff;
+    max-width: 95%; /* Garantir que a largura não ultrapasse 95% */
+    height: auto; /* Ajustar a altura para o conteúdo */
+    padding: 1.5rem; /* Ajustar o padding para telas menores */
+    margin: 1rem auto;
 }
 
+.pokemon-title {
+    font-family: 'Pokemon', sans-serif;
+    font-size: 4rem;
+    color: #CC0000;
+    text-shadow: 2px 2px #3B4CCA;
+    background: linear-gradient(to right, #FFDE00, #CC0000);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.content {
+    width: 100%; /* Definindo a largura como 100% para ocupar toda a tela */
+    height: auto; /* Ajuste para a altura automática com base no conteúdo */
+    padding: 1rem;
+    background-color: #fff;
+    margin: 1rem auto;
+    border-radius: 1rem;
+}
+
+/* Media query para telas pequenas (393px a 575px) */
+@media screen and (min-width: 393px) and (max-width: 575px) {
+    .content {
+        max-width: 95%; /* Garantir que a largura não ultrapasse 95% */
+        height: auto; /* Ajustar a altura para o conteúdo */
+        padding: 1.5rem; /* Ajustar o padding para telas menores */
+        margin: 1rem auto;
+    }
+}
+
+/* Media query para telas grandes (992px em diante) */
 @media screen and (min-width: 992px) {
     .content {
-        max-width: 992px;
-        height: auto;
+        max-width: 992px; /* Limitar a largura máxima em telas grandes */
+        height: auto; /* Ajustar altura automaticamente */
         margin: 1rem auto;
         border-radius: 1rem;
     }
