@@ -13,7 +13,6 @@
     padding: 0;
     margin-top: 1.7rem;
     width: 100%;
-    min-height: 100vh;
 }
 
 .pokemons > ol {
@@ -64,7 +63,7 @@
 
 .pokemon.expanded .detail img,
 .pokemon.extended .detail img {
-    height: 5.2rem !important;
+    height: 5.3rem !important;
 }
 
 .pokemon .detail .types {
